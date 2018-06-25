@@ -1,0 +1,22 @@
+body{
+	background-image:  url(http://fotorelax.ru/wp-content/uploads/2015/11/San-Francisco-is-a-City-of-bridges-and-fog-018.jpg);
+	background-size: cover;
+	background-attachment: fixed ;
+
+}
+.container {
+	width: 1280px;
+	margin: 0 auto;
+	border: 1px solid black;
+	padding: 10px;
+	background: rgba(255,255,255,.6);
+
+	}
+	h1 {
+	text-align: center; 
+
+
+}
+.bold{
+	font-weight: bold ;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<title>js_laba_1</title> 
+<link rel="stylesheet" href="style.css"> 
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script> 
+<link rel="stylesheet" href="style.css">
+</head> 
+<body> 
+
+<h1>Мероприятия по питону</h1> 
+<script> 
+$.ajax({
+	url:'http://api.meetup.com/find/upcoming_events?key=683a413096140599f5f367f72b44&lon=-122.42&lat-37.78&radius=1.0&text=python&page=200',
+	method:'GET',
+	dataType: 'JSONP',
+	success: function(array) {
+		data = array.data.events;
+		console.log(data);
+		for (i = 0; i < data.length; i++) {
+			$('#cont').append(
+				'<h2>'+ data[i].name +'</h2><br>'+ 
+				'<p><strong>Дата:'+data[i].local_date + '</strong></p>' +
+				'<p><strong>Время:'+data[i].local_time + '</strong></p>' +
+				'<p><strong>Сайт:'+data[i].link + '</strong></p>' +
+				'<p><strong>Адрес:'+(data[i].venue == undefined ? 'адрес не указан' : data[i].venue.address_1)  + '</strong></p>' +
+				'<p>Описание:'+data[i].description + '</p>' 
+				);
+
+		}
+
+	}
+
+})
+</script> 
+<div class="container" id= "cont"></div>
+</body>
